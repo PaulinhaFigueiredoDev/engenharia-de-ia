@@ -53,21 +53,21 @@ O terminal mostra a resposta do modelo à pergunta definida em `hello.mjs`.
 
 ## Fluxo da execução
 
-O diagrama mostra o caminho da pergunta até a resposta exibida no terminal:
+As setas numeradas mostram o envio da pergunta e o retorno da resposta:
 
 ```mermaid
-sequenceDiagram
-    actor Usuario as Usuário
-    participant Script as hello.mjs (Node.js)
-    participant Ollama as API local do Ollama
-    participant Modelo as qwen3:0.6b
+flowchart LR
+    U["Usuário"]
+    S["hello.mjs (Node.js)"]
+    O["API local do Ollama"]
+    M["qwen3:0.6b"]
 
-    Usuario->>Script: 1. Executa node hello.mjs
-    Script->>Ollama: 2. Envia POST /api/chat com a pergunta e as opções
-    Ollama->>Modelo: 3. Executa a inferência
-    Modelo-->>Ollama: 4. Gera a resposta
-    Ollama-->>Script: 5. Devolve JSON com message.content
-    Script-->>Usuario: 6. Exibe o texto no terminal
+    U -->|"1. Executa o script"| S
+    S -->|"2. Envia POST /api/chat com modelo, pergunta e configurações"| O
+    O -->|"3. Processa a pergunta com o modelo indicado"| M
+    M -.->|"4. Devolve o texto gerado"| O
+    O -.->|"5. Retorna JSON com o texto em message.content"| S
+    S -.->|"6. Exibe o texto no terminal"| U
 ```
 
 ## Entendendo como funciona a requisição
