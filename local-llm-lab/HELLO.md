@@ -51,6 +51,25 @@ node hello.mjs
 
 O terminal mostra a resposta do modelo à pergunta definida em `hello.mjs`.
 
+## Fluxo da execução
+
+O diagrama mostra o caminho da pergunta até a resposta exibida no terminal:
+
+```mermaid
+sequenceDiagram
+    actor Usuario as Usuário
+    participant Script as hello.mjs (Node.js)
+    participant Ollama as API local do Ollama
+    participant Modelo as qwen3:0.6b
+
+    Usuario->>Script: 1. Executa node hello.mjs
+    Script->>Ollama: 2. Envia POST /api/chat com a pergunta e as opções
+    Ollama->>Modelo: 3. Executa a inferência
+    Modelo-->>Ollama: 4. Gera a resposta
+    Ollama-->>Script: 5. Devolve JSON com message.content
+    Script-->>Usuario: 6. Exibe o texto no terminal
+```
+
 ## Entendendo como funciona a requisição
 
 O endereço `http://localhost:11434/api/chat` aponta para o serviço do Ollama no computador em que executei o exemplo.
