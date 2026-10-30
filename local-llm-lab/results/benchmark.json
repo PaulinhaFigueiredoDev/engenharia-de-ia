@@ -1,0 +1,45 @@
+{
+  "createdAt": "2026-10-28T04:51:07.379Z",
+  "model": "qwen3:0.6b",
+  "prompt": "Explique o que é uma LLM em duas frases.",
+  "options": {
+    "num_ctx": 2048,
+    "num_predict": 128,
+    "temperature": 0
+  },
+  "stream": false,
+  "think": false,
+  "keepAlive": "5m",
+  "runs": [
+    {
+      "run": 1,
+      "clientMs": 1482.018709,
+      "loadMs": 1081.475291,
+      "inputTokens": 29,
+      "outputTokens": 30,
+      "tokensPerSecond": 103.20876035957932,
+      "doneReason": "stop",
+      "answer": "É uma linguagem de máquina que pode gerar respostas e realizar tarefas com base em dados e conhecimento prévios."
+    },
+    {
+      "run": 2,
+      "clientMs": 293.43212500000004,
+      "loadMs": 0.618334,
+      "inputTokens": 29,
+      "outputTokens": 30,
+      "tokensPerSecond": 109.59824935063037,
+      "doneReason": "stop",
+      "answer": "É uma linguagem de máquina que pode gerar respostas e realizar tarefas com base em dados e conhecimento prévios."
+    },
+    {
+      "run": 3,
+      "clientMs": 282.60729100000003,
+      "loadMs": 0.644875,
+      "inputTokens": 29,
+      "outputTokens": 30,
+      "tokensPerSecond": 112.2939406189642,
+      "doneReason": "stop",
+      "answer": "É uma linguagem de máquina que pode gerar respostas e realizar tarefas com base em dados e conhecimento prévios."
+    }
+  ]
+}
